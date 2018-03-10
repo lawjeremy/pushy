@@ -122,8 +122,8 @@
 
 			el.addEventListener('click', function(e){
 				
-				var selected = '';
-
+				let selected = e.target.closest(submenuClass);
+					
 				if( selected.classList.contains(submenuClosedClass) ) {
 						//hide opened submenus
 						let subMenuItems = document.querySelectorAll(submenuClass);
@@ -236,6 +236,11 @@
 				opened = true;
 			}
 		});
+	}
+
+	function findAncestor (el, cls) {
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
 	}
 
 
